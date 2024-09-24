@@ -4,11 +4,11 @@ def main():
     if choice == 'A':
         celsius = float(input("Enter temperature in Celsius: "))
         fahrenheit = convert_celsius_to_fahrenheit(celsius)
-        print(f"{celsius}°C is {fahrenheit}°F")
+        print(f"{celsius}°C is {fahrenheit:.2f}°F")
     elif choice == 'B':
         fahrenheit = float(input("Enter temperature in Fahrenheit: "))
         celsius = convert_fahrenheit_to_celsius(fahrenheit)
-        print(f"{fahrenheit}°F is {celsius}°C")
+        print(f"{fahrenheit}°F is {celsius:.2f}°C")
     else:
         print("Invalid choice.")
 
