@@ -1,4 +1,4 @@
-score = float(input("Enter score: "))
+# score = float(input("Enter score: "))
 # if score < 0 or score > 100:
 #     print("Invalid score")
 # elif score >= 90:
@@ -8,9 +8,6 @@ score = float(input("Enter score: "))
 # else:
 #     print("Bad")
 
-
-# Note boundary conditions (50 should be a pass, not > 50)
-# Note efficiency and nesting; use the fewest number of if/elif as possible
 
 def main():
     """Get a numeric score and display its status."""
