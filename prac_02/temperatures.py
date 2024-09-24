@@ -11,6 +11,7 @@ def main():
         print(f"{fahrenheit}°F is {celsius:.2f}°C")
     else:
         print("Invalid choice.")
+    print("Thank you.")
 
 
 def convert_celsius_to_fahrenheit(celsius):
