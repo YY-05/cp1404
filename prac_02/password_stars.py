@@ -16,7 +16,7 @@ def main():
 
 
 def get_password(minimum_length):
-    """Get password, ensuring it meets the minimum_length requirement."""
+    """Get password, ensuring it meets the minimum length requirement."""
     password = input(f"Enter password of at least {minimum_length} characters: ")
     while len(password) < minimum_length:
         print("Password too short")
@@ -24,9 +24,9 @@ def get_password(minimum_length):
     return password
 
 
-def print_asterisks(sequence):
-    """Print as many asterisks as there are characters in the passed-in sequence."""
-    print('*' * len(sequence))
+def print_asterisks(password):
+    """Print as many asterisks as there are characters in the password."""
+    print('*' * len(password))
 
 
 main()
