@@ -21,7 +21,7 @@ I need to speed up my process, and I always write pseudocode before writing code
 
 ## What are you currently doing poorly for practicals in this subject that you will change?
 
-I will complete each of my tasks carefully, and actively seek help from teachers or classmates when I encounter something I don’t understand, so as to strengthen my understanding of the basic knowledge.
+I will complete each of my tasks carefully, and actively seek help from teachers or classmates when I encounter something I don’t understand, to strengthen my understanding of the basic knowledge.
 
 ## What are you doing really well for practicals in this subject?
 
