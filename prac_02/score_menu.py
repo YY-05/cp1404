@@ -37,10 +37,10 @@ def output_result(score):
 
 
 def get_valid_score():
-    score = int(input("Enter a valid score (0-100): "))
+    score = float(input("Enter a valid score (0-100): "))
     while score < 0 or score > 100:
         print("Invalid score! Please enter a number between 0 and 100.")
-        score = int(input("Enter a valid score (0-100): "))
+        score = float(input("Enter a valid score (0-100): "))
     return score
 
 
