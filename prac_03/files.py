@@ -8,7 +8,7 @@ out_file.close()
 in_file = open("name.txt", "r")
 print(in_file.read())
 in_file.close()
-print("Hi [name]!")
+print("Hi Bob!")
 
 with open('numbers.txt', 'r') as file:
     sum_of_first_two = 0
