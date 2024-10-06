@@ -1,24 +1,26 @@
-name = input("Name: ")
-out_file = open("name.txt", "w")
-while name != "":
-    out_file.write(name + "\n")
-    name = input("Name: ")
-out_file.close()
+# 1.
+name = input("What is your name? ")
+with open("name.txt", "w") as out_file:
+    out_file.write(name)
 
-in_file = open("name.txt", "r")
-print(in_file.read())
-in_file.close()
-print("Hi Bob!")
+# 2.
+with open("name.txt", "r") as in_file:
+    name = in_file.read().strip()
+print(f"Hi {name}!")
 
-with open('numbers.txt', 'r') as file:
-    sum_of_first_two = 0
-    for _ in range(2):
-        number = int(file.readline().strip())
-        sum_of_first_two += number
-    print(sum_of_first_two)
+# 3.
+with open("numbers.txt", "w") as file:
+    file.write("17\n42\n400\n")
 
+with open("numbers.txt", "r") as in_file:
+    number1 = int(in_file.readline())
+    number2 = int(in_file.readline())
+print(number1 + number2)
+
+# 4.
 total = 0
 with open("numbers.txt", "r") as in_file:
     for line in in_file:
-        total += int(line.strip())
+        number = int(line)
+        total += number
 print(total)
