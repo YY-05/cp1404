@@ -11,6 +11,7 @@ def main():
 
 
 def process_records(records):
+    """Create dictionary of champions and set of countries from records (list of lists)."""
     champion_to_count = {}
     countries = set()
     for record in records:
