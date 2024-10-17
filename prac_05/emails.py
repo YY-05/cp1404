@@ -6,6 +6,7 @@ def main():
 
 
 def get_user_name_and_email():
+    """Ask users for their name and store in a dictionary"""
     emails = {}
     email = input("Email: ").strip()
     while email != "":
