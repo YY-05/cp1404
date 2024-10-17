@@ -22,3 +22,7 @@ def get_user_name_and_email():
         email = input("Email: ").strip()
     return emails
 
+
+def print_user_email_and_name(emails):
+    for email, name in emails.items():
+        print(f"{name} ({email})")
