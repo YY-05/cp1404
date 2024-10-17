@@ -1,0 +1,1 @@
+texts = input("Text: ")
