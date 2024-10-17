@@ -6,4 +6,4 @@ for word in words:
         word_counts[word] += 1
     else:
         word_counts[word] = 1
-        
+width = max(len(word) for word in word_counts)
