@@ -1,28 +1,25 @@
 def main():
-    """Store users' emails (keys) and names (values) in a dictionary, checks name validity, and outputs the
-    email-name pairs."""
-    emails = get_user_name_and_email()
-    print_user_email_and_name(emails)
-
-
-def get_user_name_and_email():
-    """Ask users for their name and store in a dictionary"""
-    emails = {}
-    email = input("Email: ").strip()
+    """Create dictionary of emails-to-names."""
+    email_to_name = {}
+    email = input("Email: ")
     while email != "":
-        username = email.split('@')[0]
-        parts = username.split('.')
-        username = ' '.join(parts).title()
-        check_name = input(f"Is your name {username}? (Y/n) ").strip().lower()
-        if check_name in ('', 'y', 'yes'):
-            name = username.title()
-        else:
-            name = input("Name: ").title()
-        emails[email] = name
-        email = input("Email: ").strip()
-    return emails
+        name = get_name_from_email(email)
+        confirmation = input(f"Is your name {name}? (Y/n) ")
+        if confirmation.upper() != "Y" and confirmation != "":
+            name = input("Name: ")
+        email_to_name[email] = name
+        email = input("Email: ")
 
-
-def print_user_email_and_name(emails):
-    for email, name in emails.items():
+    for email, name in email_to_name.items():
         print(f"{name} ({email})")
+
+
+def get_name_from_email(email):
+    """Extract expected name from email address."""
+    prefix = email.split('@')[0]
+    parts = prefix.split('.')
+    name = " ".join(parts).title()
+    return name
+
+
+main()
