@@ -24,6 +24,7 @@ def process_records(records):
 
 
 def display_results(champion_to_count, countries):
+    """Display champions and countries"""
     print("Wimbledon Champions: ")
     for name, count in champion_to_count.items():
         print(name, count)
@@ -32,6 +33,7 @@ def display_results(champion_to_count, countries):
 
 
 def get_records(filename):
+    """Get records from file in list of lists form."""
     records = []
     with open(filename, "r", encoding="utf-8-sig") as in_file:
         in_file.readline()  # Remove header
