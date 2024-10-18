@@ -7,3 +7,6 @@ COLOUR_CODES = {"aliceblue": "#f0f8ff", "antiquewhite": "#faebd7",
                 "beige": "#f5f5dc", "bisque1": "#ffe4c4"}
 
 colour_name = input("Enter a colour name: ").lower()
+while colour_name != "":
+    print(f"The code for \"{colour_name}\" is {COLOUR_CODES.get(colour_name)}")
+    colour_name = input("Enter a colour name: ").lower()
