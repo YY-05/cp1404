@@ -7,4 +7,6 @@ class Guitar:
         self.year = year
         self.cost = cost
 
+    def __str__(self):
+        return f"{self.name} ({self.year}) : ${self.cost:,.2f}"
 
