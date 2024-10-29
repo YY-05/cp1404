@@ -9,4 +9,5 @@ class ProgrammingLanguage:
         self.year = year
 
     def is_dynamic(self):
+        """Determine if language is dynamically typed."""
         return self.typing == "Dynamic"
