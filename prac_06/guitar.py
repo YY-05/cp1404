@@ -1,3 +1,6 @@
+CURRENT_YEAR = 2022
+
+
 class Guitar:
     """Guitar class for storing details of a guitar."""
 
@@ -11,3 +14,5 @@ class Guitar:
         """Return a string representation of a Guitar."""
         return f"{self.name} ({self.year}) : ${self.cost:,.2f}"
 
+    def get_age(self):
+        return CURRENT_YEAR - self.year
