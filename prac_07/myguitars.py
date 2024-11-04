@@ -27,6 +27,9 @@ def main():
     print("\nAll guitars (including new ones):")
     display_guitars(guitars)
 
+    save_guitars(guitars)
+    print("\nGuitars have been saved to file.")
+
 
 def load_guitars():
     """Load guitars from the CSV file and return a list of Guitar objects."""
