@@ -24,6 +24,7 @@ def main():
         new_guitar = Guitar(name, year, cost)
         guitars.append(new_guitar)
 
+
     print("\nAll guitars (including new ones):")
     display_guitars(guitars)
 
