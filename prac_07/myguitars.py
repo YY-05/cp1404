@@ -24,7 +24,6 @@ def main():
         new_guitar = Guitar(name, year, cost)
         guitars.append(new_guitar)
 
-
     print("\nAll guitars (including new ones):")
     display_guitars(guitars)
 
@@ -50,6 +49,12 @@ def display_guitars(guitars):
         print(guitar)
 
 
+def save_guitars(guitars):
+    """Save the list of Guitar objects back to the CSV file."""
+    with open(FILENAME, mode='w', newline='') as file:
+        writer = csv.writer(file)
+        for guitar in guitars:
+            writer.writerow([guitar.name, guitar.year, guitar.cost])
 
 
 if __name__ == '__main__':
