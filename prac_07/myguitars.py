@@ -43,6 +43,12 @@ def load_guitars():
     return guitars
 
 
+def display_guitars(guitars):
+    """Display a list of guitars."""
+    for guitar in guitars:
+        print(guitar)
+
+
 
 
 if __name__ == '__main__':
