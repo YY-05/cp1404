@@ -14,6 +14,16 @@ def main():
     print("\nGuitars sorted by year:")
     display_guitars(guitars)
 
+    print("\nEnter new guitars (leave name blank to finish):")
+    while True:
+        name = input("Name: ")
+        if not name:
+            break
+        year = int(input("Year: "))
+        cost = float(input("Cost: $"))
+        new_guitar = Guitar(name, year, cost)
+        guitars.append(new_guitar)
+
 
 def load_guitars():
     """Load guitars from the CSV file and return a list of Guitar objects."""
@@ -25,6 +35,7 @@ def load_guitars():
             guitar = Guitar(name, int(year), float(cost))
             guitars.append(guitar)
     return guitars
+
 
 if __name__ == '__main__':
     main()
