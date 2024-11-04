@@ -24,6 +24,9 @@ def main():
         new_guitar = Guitar(name, year, cost)
         guitars.append(new_guitar)
 
+    print("\nAll guitars (including new ones):")
+    display_guitars(guitars)
+
 
 def load_guitars():
     """Load guitars from the CSV file and return a list of Guitar objects."""
@@ -35,6 +38,8 @@ def load_guitars():
             guitar = Guitar(name, int(year), float(cost))
             guitars.append(guitar)
     return guitars
+
+
 
 
 if __name__ == '__main__':
