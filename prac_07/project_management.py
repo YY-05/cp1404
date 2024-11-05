@@ -54,3 +54,14 @@ def add_new_project(projects):
 def update_project(projects):
     for i, project in enumerate(projects):
         print(f"{i} {project}")
+    while True:
+        project_choice = input("Project choice: ")
+        if not project_choice.isdigit():
+            print("Invalid input, please enter a number.")
+            continue
+        project_choice = int(project_choice)
+        if project_choice < 0 or project_choice >= len(projects):
+            print("Invalid input, please enter a valid project number.")
+            continue
+        print(projects[project_choice])
+        break
