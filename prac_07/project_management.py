@@ -9,7 +9,8 @@ def main():
     print("Welcome to Pythonic Project Management")
     projects = load_projects(filename)
     print(f"Loaded {len(projects)} projects from {filename}")
-
+    while True:
+        print(menu)
 
 
 def load_projects(filename):
