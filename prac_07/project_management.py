@@ -30,3 +30,7 @@ def display_projects(projects):
     print("Completed projects:")
     for project in complete:
         print(f"  {project}")
+
+
+def filter_projects_by_date(projects):
+    date_string = input("Show projects that start after date (dd/mm/yy): ")  # e.g., "30/9/2022"
