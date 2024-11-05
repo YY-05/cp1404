@@ -2,6 +2,9 @@ from project import Project
 import datetime
 
 
+def main():
+
+
 def load_projects(filename):
     projects = []
     in_file = open(filename, "r")
@@ -71,3 +74,6 @@ def update_project(projects):
         projects[project_choice].completion_percentage = int(new_percentage)
     if new_priority:
         projects[project_choice].priority = int(new_priority)
+
+
+main()
