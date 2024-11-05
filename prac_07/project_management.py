@@ -39,3 +39,4 @@ def filter_projects_by_date(projects):
     filtered_projects = sorted(filtered_projects, key=lambda x: x.start_date)
     for project in filtered_projects:
         print(project)
+
