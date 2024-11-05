@@ -11,3 +11,13 @@ def load_projects(filename):
         projects.append(Project(parts[0], parts[1], int(parts[2]), float(parts[3]), int(parts[4])))
     in_file.close()
     return projects
+
+
+def save_projects(filename, projects):
+    out_file = open(filename, "w")
+    out_file.write("Name\tStart Date\tPriority\tCost Estimate\tCompletion Percentage\n")
+    for project in projects:
+        out_file.write(f"{project.name}\t{project.start_date}\t{project.priority}\t{project.cost_estimate}\t{project.completion_percentage}\n")
+        out_file.close()
+
+
