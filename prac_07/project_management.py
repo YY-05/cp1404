@@ -34,3 +34,4 @@ def display_projects(projects):
 
 def filter_projects_by_date(projects):
     date_string = input("Show projects that start after date (dd/mm/yy): ")  # e.g., "30/9/2022"
+    date = datetime.datetime.strptime(date_string, "%d/%m/%Y").date()
