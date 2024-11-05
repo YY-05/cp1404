@@ -40,3 +40,6 @@ def filter_projects_by_date(projects):
     for project in filtered_projects:
         print(project)
 
+
+def add_new_project(projects):
+    print("Let's add a new project")
