@@ -49,3 +49,8 @@ def add_new_project(projects):
     cost_estimate = float(input("Cost estimate: $"))
     completion_percentage = int(input("Percent complete: "))
     projects.append(Project(name, start_date, priority, cost_estimate, completion_percentage))
+
+
+def update_project(projects):
+    for i, project in enumerate(projects):
+        print(f"{i} {project}")
