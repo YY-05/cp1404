@@ -26,3 +26,7 @@ def display_projects(projects):
     print("Incomplete projects: ")
     for project in incomplete:
         print(f"  {project}")
+    complete = sorted([project for project in projects if project.is_completed()], key=lambda x: x.priority)
+    print("Completed projects:")
+    for project in complete:
+        print(f"  {project}")
