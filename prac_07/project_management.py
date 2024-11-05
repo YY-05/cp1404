@@ -21,3 +21,8 @@ def save_projects(filename, projects):
         out_file.close()
 
 
+def display_projects(projects):
+    incomplete = sorted([project for project in projects if not project.is_completed()], key=lambda x: x.priority)
+    print("Incomplete projects: ")
+    for project in incomplete:
+        print(f"  {project}")
