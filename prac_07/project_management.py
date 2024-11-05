@@ -11,6 +11,7 @@ def main():
     print(f"Loaded {len(projects)} projects from {filename}")
     while True:
         print(menu)
+        choice = input(">>> ").lower()
 
 
 def load_projects(filename):
