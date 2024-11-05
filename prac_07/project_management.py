@@ -4,33 +4,59 @@ import datetime
 
 def main():
     filename = "projects.txt"
-    menu = """- (L)oad projects\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter projects by date
-    - (A)dd new project)\n- (U)pdate project\n- (Q)uit"""
+    menu = """- (L)oad projects
+- (S)ave projects
+- (D)isplay projects
+- (F)ilter projects by date
+- (A)dd new project
+- (U)pdate project
+- (Q)uit"""
     print("Welcome to Pythonic Project Management")
     projects = load_projects(filename)
     print(f"Loaded {len(projects)} projects from {filename}")
     while True:
         print(menu)
         choice = input(">>> ").lower()
+        if choice not in ["l", "s", "d", "f", "a", "u", "q"]:
+            print("Invalid choice")
+        elif choice == "l":
+            projects = load_projects(filename)
+            print(f"Loaded {len(projects)} projects from {filename}")
+        elif choice == "s":
+            save_projects(filename, projects)
+            print(f"Saved {len(projects)} projects to {filename}")
+        elif choice == "d":
+            display_projects(projects)
+        elif choice == "f":
+            filter_projects_by_date(projects)
+        elif choice == "a":
+            add_new_project(projects)
+        elif choice == "u":
+            update_project(projects)
+        elif choice == "q":
+            whether_save = input("Would you like to save to projects.txt? ").lower()
+            if whether_save.startswith("y"):
+                save_projects(filename, projects)
+                print("Projects saved.")
+            print("Thank you for using custom-built project management software.")
+            break
 
 
 def load_projects(filename):
     projects = []
-    in_file = open(filename, "r")
-    in_file.readline()
-    for line in in_file:
-        parts = line.strip().split("\t")
-        projects.append(Project(parts[0], parts[1], int(parts[2]), float(parts[3]), int(parts[4])))
-    in_file.close()
+    with open(filename, "r") as in_file:
+        in_file.readline()
+        for line in in_file:
+            parts = line.strip().split("\t")
+            projects.append(Project(parts[0], parts[1], int(parts[2]), float(parts[3]), int(parts[4])))
     return projects
 
 
 def save_projects(filename, projects):
-    out_file = open(filename, "w")
-    out_file.write("Name\tStart Date\tPriority\tCost Estimate\tCompletion Percentage\n")
-    for project in projects:
-        out_file.write(f"{project.name}\t{project.start_date}\t{project.priority}\t{project.cost_estimate}\t{project.completion_percentage}\n")
-        out_file.close()
+    with open(filename, "w") as out_file:
+        out_file.write("Name\tStart Date\tPriority\tCost Estimate\tCompletion Percentage\n")
+        for project in projects:
+            out_file.write(f"{project.name}\t{project.start_date.strftime('%d/%m/%Y')}\t{project.priority}\t{project.cost_estimate}\t{project.completion_percentage}\n")
 
 
 def display_projects(projects):
@@ -45,8 +71,12 @@ def display_projects(projects):
 
 
 def filter_projects_by_date(projects):
-    date_string = input("Show projects that start after date (dd/mm/yy): ")  # e.g., "30/9/2022"
-    date = datetime.datetime.strptime(date_string, "%d/%m/%Y").date()
+    date_string = input("Show projects that start after date (dd/mm/yyyy): ")  # e.g., "30/09/2022"
+    try:
+        date = datetime.datetime.strptime(date_string, "%d/%m/%Y").date()
+    except ValueError:
+        print("Invalid date format. Please enter date in dd/mm/yyyy format.")
+        return
     filtered_projects = [project for project in projects if project.start_date >= date]
     filtered_projects = sorted(filtered_projects, key=lambda x: x.start_date)
     for project in filtered_projects:
@@ -56,7 +86,8 @@ def filter_projects_by_date(projects):
 def add_new_project(projects):
     print("Let's add a new project")
     name = input("Name: ").title()
-    start_date = input("Start date (d/m/yy): ")
+    start_date_string = input("Start date (d/m/yyyy): ")
+    start_date = datetime.datetime.strptime(start_date_string, "%d/%m/%Y").date()
     priority = int(input("Priority: "))
     cost_estimate = float(input("Cost estimate: $"))
     completion_percentage = int(input("Percent complete: "))

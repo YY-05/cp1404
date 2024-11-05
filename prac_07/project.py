@@ -1,25 +1,22 @@
-import datetime
+from datetime import datetime
 
 
 class Project:
-    """Represent information about a Project."""
-
-    def __init__(self, name, typing, reflection, pointer_arithmetic, year):
-        """Construct a ProgrammingLanguage from the given values."""
+    def __init__(self, name, start_date, priority, cost_estimate, completion_percentage):
         self.name = name
-        self.typing = typing
-        self.reflection = reflection
-        self.pointer_arithmetic = pointer_arithmetic
-        self.year = year
+        if isinstance(start_date, str):
+            self.start_date = datetime.strptime(start_date, "%d/%m/%Y").date()
+        else:
+            self.start_date = start_date
+        self.priority = priority
+        self.cost_estimate = cost_estimate
+        self.completion_percentage = completion_percentage
 
-    def __repr__(self):
-        """return a string"""
-        return f"{self.name}, start: {self.start_date}, priority: {self.priority}, estimate: ${self.cost_estimate:.2f}, completion: {self.completion_percentage}%"
-
-    def __lt__(self, other):
-        """make the project is sorting by priority"""
-        return self.priority < other.priority
 
     def is_completed(self):
-        """if the project is complete, return the completion percentage to 100%"""
         return self.completion_percentage == 100
+
+    def __str__(self):
+        start_date_str = self.start_date.strftime("%d/%m/%Y")
+        return (f"{self.name}, start: {start_date_str}, priority {self.priority}, "
+                f"estimate: ${self.cost_estimate:.2f}, completion: {self.completion_percentage}%")
