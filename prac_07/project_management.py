@@ -3,6 +3,9 @@ import datetime
 
 
 def main():
+    filename = "projects.txt"
+    menu = """- (L)oad projects\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter projects by date
+    - (A)dd new project)\n- (U)pdate project\n- (Q)uit"""
 
 
 def load_projects(filename):
