@@ -3,6 +3,7 @@ import datetime
 
 
 def main():
+    """Main function to run the project management software."""
     filename = "projects.txt"
     menu = """- (L)oad projects
 - (S)ave projects
@@ -43,6 +44,7 @@ def main():
 
 
 def load_projects(filename):
+    """Load projects from a text file and return the list of Project"""
     projects = []
     with open(filename, "r") as in_file:
         in_file.readline()
@@ -53,6 +55,7 @@ def load_projects(filename):
 
 
 def save_projects(filename, projects):
+    """Prompt the user for a filename to save projects to and save them"""
     with open(filename, "w") as out_file:
         out_file.write("Name\tStart Date\tPriority\tCost Estimate\tCompletion Percentage\n")
         for project in projects:
@@ -60,6 +63,7 @@ def save_projects(filename, projects):
 
 
 def display_projects(projects):
+    """Display two groups: incomplete projects; completed projects, both sorted by priority"""
     incomplete = sorted([project for project in projects if not project.is_completed()], key=lambda x: x.priority)
     print("Incomplete projects: ")
     for project in incomplete:
@@ -71,6 +75,7 @@ def display_projects(projects):
 
 
 def filter_projects_by_date(projects):
+    """Ask the user for a date and display only projects that start after that date, sorted by date"""
     date_string = input("Show projects that start after date (dd/mm/yyyy): ")  # e.g., "30/09/2022"
     try:
         date = datetime.datetime.strptime(date_string, "%d/%m/%Y").date()
@@ -84,6 +89,7 @@ def filter_projects_by_date(projects):
 
 
 def add_new_project(projects):
+    """Ask the user for the inputs and add a new project to memory"""
     print("Let's add a new project")
     name = input("Name: ").title()
     start_date_string = input("Start date (d/m/yyyy): ")
@@ -95,6 +101,7 @@ def add_new_project(projects):
 
 
 def update_project(projects):
+    """Choose a project, then modify the completion % and/or priority - leave blank to retain existing values"""
     for i, project in enumerate(projects):
         print(f"{i} {project}")
     while True:
