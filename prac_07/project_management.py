@@ -65,3 +65,7 @@ def update_project(projects):
             continue
         print(projects[project_choice])
         break
+    new_percentage = input("New Percentage: ")
+    if new_percentage:
+        projects[project_choice].completion_percentage = int(new_percentage)
+
