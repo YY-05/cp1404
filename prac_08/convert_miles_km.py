@@ -18,30 +18,35 @@ class MilesConverterApp(App):
     output_km = StringProperty()
 
     def build(self):
-        """ build the Kivy app from the kv file """
+        """ Build the Kivy app from the kv file """
         self.title = "Convert Miles to Kilometres"
-        self.root = Builder.load_file('convert_miles_km.kv')
+        try:
+            self.root = Builder.load_file('convert_miles_km.kv')
+        except FileNotFoundError:
+            print("Error: The .kv file 'convert_miles_km.kv' was not found.")
+            return None
         return self.root
 
-    def handle_calculate(self):
-        """ handle calculation (could be button press or other call), output result to label widget """
-        print("handle calculate")
+    def handle_calculate(self, text):
+        """ Handle calculation, output result to label widget """
         miles = self.convert_to_number(text)
         self.update_result(miles)
 
-    def handle_increment(self, text):
+    def handle_increment(self, text, change):
         """
-        handle up/down button press, update the text input with new value, call calculation function
-        :param change: the amount to change
+        Handle up/down button press, update the text input with new value, call calculation function
+        :param text: current text in the input field
+        :param change: the amount to change the miles by
         """
-        print("handle increment")
         miles = self.convert_to_number(text) + change
         self.root.ids.input_miles.text = str(miles)
+        self.update_result(miles)
 
     def update_result(self, miles):
-        print("update")
+        """ Update the output label with kilometers value """
         self.output_km = str(miles * MILES_TO_KM)
 
+    @staticmethod
     def convert_to_number(text):
         """Convert text to float or 0.0 if invalid."""
         try:
