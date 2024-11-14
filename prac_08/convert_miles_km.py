@@ -29,7 +29,7 @@ class MilesConverterApp(App):
         miles = self.convert_to_number(text)
         self.update_result(miles)
 
-    def handle_increment(self, change):
+    def handle_increment(self, text):
         """
         handle up/down button press, update the text input with new value, call calculation function
         :param change: the amount to change
@@ -37,6 +37,10 @@ class MilesConverterApp(App):
         print("handle increment")
         miles = self.convert_to_number(text) + change
         self.root.ids.input_miles.text = str(miles)
+
+    def update_result(self, miles):
+        print("update")
+        self.output_km = str(miles * MILES_TO_KM)
 
     def convert_to_number(text):
         """Convert text to float or 0.0 if invalid."""
