@@ -9,3 +9,10 @@ class DynamicLabelsApp(App):
         super().__init__(**kwargs)
         # basic data (model) example - dictionary of names
         self.names = {"Bob Brown", "Cat Cyan", "Oren Ochre"}
+
+    def build(self):
+        """Build the Kivy GUI."""
+        self.title = "Dynamic Labels"
+        self.root = Builder.load_file('dynamic_labels.kv')
+        self.create_labels()
+        return self.root
