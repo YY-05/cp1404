@@ -38,16 +38,12 @@ class MilesConverterApp(App):
         miles = self.convert_to_number(text) + change
         self.root.ids.input_miles.text = str(miles)
 
-    def get_validated_miles(self):
-        """
-        get text input from text entry widget, convert to float
-        :return: 0 if error, float version of text if valid
-        """
+    def convert_to_number(text):
+        """Convert text to float or 0.0 if invalid."""
         try:
-            value = float(self.root.ids.input_miles.text)
-            return value
+            return float(text)
         except ValueError:
-            return 0
+            return 0.0
 
 
 MilesConverterApp().run()
