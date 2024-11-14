@@ -34,9 +34,9 @@ class MilesConverterApp(App):
         handle up/down button press, update the text input with new value, call calculation function
         :param change: the amount to change
         """
-        value = self.get_validated_miles() + change
-        self.root.ids.input_miles.text = str(value)
-        self.handle_calculate()
+        print("handle increment")
+        miles = self.convert_to_number(text) + change
+        self.root.ids.input_miles.text = str(miles)
 
     def get_validated_miles(self):
         """
