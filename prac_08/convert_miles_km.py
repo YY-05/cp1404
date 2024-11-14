@@ -8,7 +8,7 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.properties import StringProperty
 
-FACTOR_MILES_TO_KM = 1.60934
+MILES_TO_KM = 1.60934
 
 
 class MilesConverterApp(App):
@@ -28,15 +28,20 @@ class MilesConverterApp(App):
         self.update_result(miles)
 
     def handle_increment(self, text, change):
-        """Handle up/down button press, update the text input with new value, call calculation function."""
+        """
+        Handle up/down button press, update the text input with new value, call calculation function
+        :param text: current text in the input field
+        :param change: the amount to change the miles by
+        """
         print("handle increment")
         miles = self.convert_to_number(text) + change
         self.root.ids.input_miles.text = str(miles)
         # Since the InputText.text has changed, its on_text event will fire and handle_calculate will be called
 
     def update_result(self, miles):
+        """ Update the output label with kilometers value """
         print("update")
-        self.output_km = str(miles * FACTOR_MILES_TO_KM)
+        self.output_km = str(miles * MILES_TO_KM)
 
     @staticmethod
     def convert_to_number(text):
