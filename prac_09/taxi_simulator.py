@@ -41,7 +41,7 @@ def main():
                 print("You need to choose a taxi before you can drive")
         else:
             print("Invalid option")
-        print("Bill to date: ${total_bill:.2f}")
+        print(f"Bill to date: ${total_bill:.2f}")
         print(MENU)
         menu_choice = input(">>> ").lower()
 
@@ -67,6 +67,7 @@ def run_tests():
     print("odo = ", bus._odometer)
     print(bus)
 
+    # drive bus (input/loop is oblivious to fuel)
     distance = int(input("Drive how far? "))
     while distance > 0:
         distance_travelled = bus.drive(distance)
@@ -87,4 +88,5 @@ def run_tests():
     print(sst, sst.get_fare())
 
 
+# run_tests()
 main()
