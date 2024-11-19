@@ -12,6 +12,7 @@ def main():
     current_taxi = None
     print("Let's drive!")
     print(MENU)
+    menu_choice = input(">>> ").lower()
 
 
 main()
