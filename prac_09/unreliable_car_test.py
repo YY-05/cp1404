@@ -10,3 +10,9 @@ def main():
         print(f"Attempting to drive {i}km:")
         print(f"{good_car.name:12} drove {good_car.drive(i):2}km")
         print(f"{bad_car.name:12} drove {bad_car.drive(i):2}km")
+
+    print(good_car)
+    print(bad_car)
+
+
+main()
