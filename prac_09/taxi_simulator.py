@@ -67,7 +67,6 @@ def run_tests():
     print("odo = ", bus._odometer)
     print(bus)
 
-    # drive bus (input/loop is oblivious to fuel)
     distance = int(input("Drive how far? "))
     while distance > 0:
         distance_travelled = bus.drive(distance)
@@ -88,5 +87,4 @@ def run_tests():
     print(sst, sst.get_fare())
 
 
-# run_tests()
 main()
